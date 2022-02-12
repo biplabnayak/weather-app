@@ -1,10 +1,15 @@
 pipeline {
+    environment {
+            registry = "biplabnayak/weather-app"
+            registryCredential = 'dockerhub'
+            dockerImage = ''
+    }
     agent any
     tools {
        maven 'Maven3.6'
     }
     stages {
-        stage('Build') {
+        stage('Code Build') {
             steps {
                 bat 'mvn -B -DskipTests clean package'
             }
@@ -18,6 +23,13 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
+        }
+        stage('Building image') {
+                    steps {
+                        script {
+                            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                        }
+                    }
         }
         stage('Deliver') {
             steps {
