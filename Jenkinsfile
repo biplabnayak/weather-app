@@ -42,7 +42,7 @@ pipeline {
                 }
         stage('Cleaning up Docker Cache') {
                     steps {
-                        sh "docker rmi $registry:$BUILD_NUMBER"
+                        bat "docker rmi $registry:$BUILD_NUMBER"
                     }
                 }
         stage('Deliver') {
