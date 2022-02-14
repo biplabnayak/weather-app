@@ -2,8 +2,8 @@ version: 0.1
 
 env:
   secrets-manager:
-    DOCKERHUB_PASS: "/dockerhub/credentials:password"
-    DOCKERHUB_USERNAME: "/dockerhub/credentials:username"
+    DOCKERHUB_PASS: "/dockerhub:password"
+    DOCKERHUB_USERNAME: "/dockerhub:username"
 
 phases:
   build:
