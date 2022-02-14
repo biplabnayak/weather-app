@@ -15,6 +15,9 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
+cache:
+  paths:
+    - '/root/.m2/**/*'
 artifacts:
   files:
     - target/weather-app-0.0.1-SNAPSHOT.jar
