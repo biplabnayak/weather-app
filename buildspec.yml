@@ -16,7 +16,7 @@ phases:
       - echo Build completed on `date`
       - mvn package
       - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS
-      - docker build -t biplabnayak/weather-app
+      - docker build -t biplabnayak/weather-app 
       - docker push biplabnayak/weather-app
 cache:
   paths:
